@@ -14,6 +14,7 @@ after_success:
   - docker push jwkim/docker-frontend
   - docker push jwkim/docker-backend
   - docker push jwkim/nginx
+  - echo "success!"
 deploy:
   provider: elasticbeanstalk
   region: ap-northeast-2
@@ -26,4 +27,4 @@ deploy:
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_KEY
 
-  
+
