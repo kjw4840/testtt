@@ -3,7 +3,7 @@ sudo: required
 services:
   - docker
 before_install:
-  - docker build -t jwkim/react-app -f ./frontend/Dockerfile.dev ./
+  - docker build -t jwkim/react-app -f ./frontend/Dockerfile.dev ./frontend
 script:
   - docker run -e CI=true jwkim/react-app npm run test
 after_success:
@@ -14,3 +14,14 @@ after_success:
   - docker push jwkim/docker-frontend
   - docker push jwkim/docker-backend
   - docker push jwkim/nginx
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2"
+  app: "docker-react-01"
+  env: "Dockerreact01-env"
+  bucket_name: "elasticbeanstalk-ap-northeast-2-250058502806"
+  bucket_path: "docker-react-01"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
