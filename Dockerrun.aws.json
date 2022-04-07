@@ -3,21 +3,21 @@
     "containerDefinitions" : [
         {
             "name": "frontend",
-            "image": "jwkim/docker-frontend",
+            "image": "kjw4840/docker-frontend",
             "hostname": "frontend",
             "essential": false,
             "memory": 128
         },
         {
             "name": "backend",
-            "image": "jwkim/docker-backend",
+            "image": "kjw4840/docker-backend",
             "hostname": "backend",
             "essential": false,
             "memory": 128
         },
         {
             "name": "nginx",
-            "image": "jwkim/docker-nginx",
+            "image": "kjw4840/docker-nginx",
             "hostname": "nginx",
             "essential": true,
             "memory": 128,
