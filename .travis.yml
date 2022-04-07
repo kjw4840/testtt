@@ -13,18 +13,18 @@ after_success:
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
   - docker push kjw4840/docker-frontend
   - docker push kjw4840/docker-backend
-  - docker push kjw4840/nginx
+  - docker push kjw4840/docker-nginx
   - echo "success!"
-# deploy:
-#   provider: elasticbeanstalk
-#   region: ap-northeast-2
-#   app: "docker-fullstack-app-1"
-#   env: "Dockerfullstackapp1-env-1"
-#   bucket_name: elasticbeanstalk-ap-northeast-2-250058502806
-#   bucket_path: "docker-fullstack-app-1"
-#   on:
-#     branch: "master"
-#   access_key_id: $AWS_ACCESS_KEY
-#   secret_access_key: $AWS_SECRET_KEY
+deploy:
+  provider: elasticbeanstalk
+  region: ap-northeast-2
+  app: "docker-fullstack-app-1"
+  env: "Dockerfullstackapp1-env-1"
+  bucket_name: elasticbeanstalk-ap-northeast-2-250058502806
+  bucket_path: "docker-fullstack-app-1"
+  on:
+    branch: "master"
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
 
 
